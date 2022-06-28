@@ -12,7 +12,7 @@ from pyrogram import enums
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkuo
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 START_MARKUP = [
     [
