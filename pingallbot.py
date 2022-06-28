@@ -23,7 +23,7 @@ chatQueue = []
 
 stopProcess = False
 
-@teletips.on_message(filters.command(["ping","all"]))
+@teletips.on_message(filters.command(["tagall","all"]))
 async def everyone(client, message):
   global stopProcess
   try: 
