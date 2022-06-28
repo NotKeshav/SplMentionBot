@@ -12,6 +12,14 @@ from pyrogram import enums
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkuo
+
+START_MARKUP = [
+    [
+    InlineKeyboardButton("➕ Add to your chat ➕", url=f"t.me/EndMentionBot?startgroup=true")
+    ]
+    ]
+
 teletips=Client(
     "PingAllBot",
     api_id = int(os.environ["API_ID"]),
@@ -242,7 +250,7 @@ Don't forget to join my [channel](http://t.me/THE_END_NETWORK) to recieve inform
 
 Hit /help to find out my commands and the use of them.
 '''
-  await teletips.send_message(message.chat.id, text, disable_web_page_preview=True)
+  await teletips.send_message(message.chat.id, text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(START_MARKUP))
 
 
 @teletips.on_message(filters.command("help"))
