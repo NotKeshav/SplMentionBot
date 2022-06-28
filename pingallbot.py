@@ -233,7 +233,7 @@ async def bots(client, message):
 @teletips.on_message(filters.command("start") & filters.private)
 async def start(client, message):
   text = f'''
-Heya {message.from_user.mention},
+Heya {message.from_user.mention},\n
 My name is **EndMentionBot**, belongs to @THE_END_NETWORK. I'm here to help you to get everyone's attention by mentioning all members in your chat.
 
 I have some additional cool features and also I can work in channels.
