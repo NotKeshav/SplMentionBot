@@ -1,40 +1,51 @@
 {
-    "name": "PingAllBot-TeLeTiPs",
-    "description": "Powerful Telegram bot to get everyone's attention by mentioning all members in the chat. PingAll bot has some additional cool features and also it can work in channels. It's easy, fast and self deployable.",
-    "repository": "https://github.com/teletips/CountdownTimer-TeLeTiPs",
-    "logo": "https://telegra.ph/file/fd3d0cffbabc214043e0d.jpg",
-    "keywords": [
-        "ping all bot",
-        "mention all bot",
-        "notify all bot",
-        "tag all bot",
-        "everyone bot",
-        "Telegram bot",
-        "Pyrogram bot"
-    ],
-    "env": {
-        "API_ID": {
-            "description": "Get from my.telegram.org/apps",
-            "required": true
-        },
-        "API_HASH": {
-            "description": "Get from my.telegram.org/apps",
-            "required": true
-        },
-        "BOT_TOKEN": {
-            "description": "Get from Telegram's @BotFather",
-            "required": true
-        }
-    },
-    "formation": {
+  "name": "String Generator by Alpha",
+  "description": "Telegram bot to generate Pyrogram & Telethon StringSession Made By Alpha",
+  "logo": "https://te.legra.ph/file/ac72a0208034b15f04c18.jpg",
+  "keywords": [
+    "telegram",
+    "bot",
+    "python",
+    "pyrogram"
+  ],
+    "buildpacks": [{
+    "url": "heroku/python"
+  }],
+  "formation": {
     "worker": {
       "quantity": 1,
       "size": "free"
     }
   },
-    "buildpacks": [
-        {
-            "url": "heroku/python"
-        }
-    ]
+  "addons": [
+      {
+         "options": {
+            "version": "12"
+         },
+         "plan": "heroku-postgresql"
+      }
+   ],
+  "repository": "https://github.com/theend-alpha/StringBot",
+  "env": {
+    "ENVIRONMENT": {
+      "description": "Don't change ANYTHING.",
+      "required": true,
+      "value": "ANYTHING"
+    },
+    "API_ID": {
+      "description": "Get this value from my.telegram.org.",
+      "required": true,
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from my.telegram.org.",
+      "required": true,
+      "value": ""
+    },
+    "BOT_TOKEN": {
+      "description": "Obtain a Telegram bot token by contacting @BotFather",
+      "required": true,
+      "value": ""
+    }
+  }
 }
