@@ -27,7 +27,7 @@ async def everyone(client, message):
   global stopProcess
   try: 
     try:
-      sender = await teletips.get_chat_member(message.chat.id, message.from_user.id)
+      sender = await client.get_chat_member(message.chat.id, message.from_user.id)
       has_permissions = sender.privileges
     except:
       has_permissions = message.sender_chat  
@@ -44,7 +44,7 @@ async def everyone(client, message):
           elif len(message.command) == 1:
             inputText = ""    
           membersList = []
-          async for member in teletips.get_chat_members(message.chat.id):
+          async for member in client.get_chat_members(message.chat.id):
             if member.user.is_bot == True:
               pass
             elif member.user.is_deleted == True:
@@ -67,14 +67,14 @@ async def everyone(client, message):
                   text1 += f"@{user.username} "
                   j+=1
               try:     
-                await teletips.send_message(message.chat.id, text1)
+                await client.send_message(message.chat.id, text1)
               except Exception:
                 pass  
               await asyncio.sleep(10) 
               i+=10
             except IndexError:
               try:
-                await teletips.send_message(message.chat.id, text1)  
+                await client.send_message(message.chat.id, text1)  
               except Exception:
                 pass  
               i = i+j
@@ -93,12 +93,12 @@ async def remove(client, message):
   global stopProcess
   try: 
     try:
-      sender = await teletips.get_chat_member(message.chat.id, message.from_user.id)
+      sender = await client.get_chat_member(message.chat.id, message.from_user.id)
       has_permissions = sender.privileges
     except:
       has_permissions = message.sender_chat  
     if has_permissions:
-      bot = await teletips.get_chat_member(message.chat.id, "self")
+      bot = await client.get_chat_member(message.chat.id, "self")
       if bot.status == ChatMemberStatus.MEMBER:
         await message.reply("🕹 | I need admin permissions to remove deleted accounts.")  
       else:  
@@ -110,7 +110,7 @@ async def remove(client, message):
           else:  
             chatQueue.append(message.chat.id)  
             deletedList = []
-            async for member in teletips.get_chat_members(message.chat.id):
+            async for member in client.get_chat_members(message.chat.id):
               if member.user.is_deleted == True:
                 deletedList.append(member.user)
               else:
@@ -122,12 +122,12 @@ async def remove(client, message):
             else:
               k = 0
               processTime = lenDeletedList*10
-              temp = await teletips.send_message(message.chat.id, f"🚨 | Total of {lenDeletedList} deleted accounts has been detected.\n⏳ | Estimated time: {processTime} seconds from now.")
+              temp = await client.send_message(message.chat.id, f"🚨 | Total of {lenDeletedList} deleted accounts has been detected.\n⏳ | Estimated time: {processTime} seconds from now.")
               if stopProcess: stopProcess = False
               while len(deletedList) > 0 and not stopProcess:   
                 deletedAccount = deletedList.pop(0)
                 try:
-                  await teletips.ban_chat_member(message.chat.id, deletedAccount.id)
+                  await client.ban_chat_member(message.chat.id, deletedAccount.id)
                 except Exception:
                   pass  
                 k+=1
@@ -149,7 +149,7 @@ async def stop(client, message):
   global stopProcess
   try:
     try:
-      sender = await teletips.get_chat_member(message.chat.id, message.from_user.id)
+      sender = await client.get_chat_member(message.chat.id, message.from_user.id)
       has_permissions = sender.privileges
     except:
       has_permissions = message.sender_chat  
@@ -169,7 +169,7 @@ async def admins(client, message):
   try: 
     adminList = []
     ownerList = []
-    async for admin in teletips.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+    async for admin in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
       if admin.privileges.is_anonymous == False:
         if admin.user.is_bot == True:
           pass
@@ -191,7 +191,7 @@ async def admins(client, message):
       text2 += f"👑 Owner\n└ <i>Hidden</i>\n\n👮🏻 Admins\n"
     if len(adminList) == 0:
       text2 += "└ <i>Admins are hidden</i>"  
-      await teletips.send_message(message.chat.id, text2)   
+      await client.send_message(message.chat.id, text2)   
     else:  
       while len(adminList) > 1:
         admin = adminList.pop(0)
@@ -206,7 +206,7 @@ async def admins(client, message):
         else:
           text2 += f"└ @{admin.username}\n\n"
       text2 += f"✅ | **Total number of admins**: {lenAdminList}\n❌ | Bots and hidden admins were rejected."  
-      await teletips.send_message(message.chat.id, text2)           
+      await client.send_message(message.chat.id, text2)           
   except FloodWait as e:
     await asyncio.sleep(e.value)       
 
@@ -214,7 +214,7 @@ async def admins(client, message):
 async def bots(client, message):  
   try:    
     botList = []
-    async for bot in teletips.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.BOTS):
+    async for bot in client.get_chat_members(message.chat.id, filter=enums.ChatMembersFilter.BOTS):
       botList.append(bot.user)
     lenBotList = len(botList) 
     text3  = f"**BOT LIST - {message.chat.title}**\n\n🤖 Bots\n"
@@ -225,7 +225,7 @@ async def bots(client, message):
       bot = botList.pop(0)
       text3 += f"└ @{bot.username}\n\n"
       text3 += f"✅ | **Total number of bots**: {lenBotList}"  
-      await teletips.send_message(message.chat.id, text3)
+      await client.send_message(message.chat.id, text3)
   except FloodWait as e:
     await asyncio.sleep(e.value)
 
@@ -238,7 +238,7 @@ I have some additional cool features and also I can work in channels.
 Don't forget to join my channel to recieve information on all the latest updates.
 Hit /help to find out my commands and the use of them.
 '''
-  await teletips.send_photo(message.chat.id, S_P, caption=text, reply_markup=InlineKeyboardMarkup(START_MARKUP))
+  await client.send_photo(message.chat.id, S_P, caption=text, reply_markup=InlineKeyboardMarkup(START_MARKUP))
 
 
 @teletips.on_message(filters.command("help"))
@@ -253,4 +253,4 @@ Hey, let's have a quick look at my commands.
 - /stop: <i>Stop an on going process.</i>
 If you have any questions on how to use me, feel free to ask @xTripathi and @xDevesh.
 '''
-  await teletips.send_message(message.chat.id, text, disable_web_page_preview=True)
+  await client.send_message(message.chat.id, text, disable_web_page_preview=True)
