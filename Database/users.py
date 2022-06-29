@@ -75,17 +75,17 @@ def is_served_user(id):
 def clr_chats():
     LEL = []
     lel = SESSION.query(MS_users).all()
-        for lol in lel:
-            LEL.append(lol.chat_id)
-        for LOL in LEL:
-            omfoo = SESSION.query(MS_users).get(LOL)
-            SESSION.delete(omfoo)
+    for lol in lel:
+        LEL.append(lol.chat_id)
+    for LOL in LEL:
+        omfoo = SESSION.query(MS_users).get(LOL)
+        SESSION.delete(omfoo)
 
 def clr_users():
     LEL = []
     lel = SESSION.query(M_users).all()
-        for lol in lel:
-            LEL.append(lol.id)
-        for LOL in LEL:
-            omfoo = SESSION.query(M_users).get(LOL)
-            SESSION.delete(omfoo)
+    for lol in lel:
+        LEL.append(lol.id)
+    for LOL in LEL:
+        omfoo = SESSION.query(M_users).get(LOL)
+        SESSION.delete(omfoo)
