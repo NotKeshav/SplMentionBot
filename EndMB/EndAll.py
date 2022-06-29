@@ -1,4 +1,4 @@
-from pyrogram import Client as teletips, filters
+from pyrogram import Client as End, filters
 from pyrogram.types import Message
 import os
 import asyncio
@@ -22,7 +22,7 @@ chatQueue = []
 
 stopProcess = False
 
-@teletips.on_message(filters.command(["tagall","all"]))
+@End.on_message(filters.command(["tagall","all"]))
 async def everyone(client, message):
   global stopProcess
   try: 
@@ -88,7 +88,7 @@ async def everyone(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value) 
 
-@teletips.on_message(filters.command(["remove","clean"]))
+@End.on_message(filters.command(["remove","clean"]))
 async def remove(client, message):
   global stopProcess
   try: 
@@ -144,7 +144,7 @@ async def remove(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)                               
         
-@teletips.on_message(filters.command(["stop","cancel"]))
+@End.on_message(filters.command(["stop","cancel"]))
 async def stop(client, message):
   global stopProcess
   try:
@@ -164,7 +164,7 @@ async def stop(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)
 
-@teletips.on_message(filters.command(["admins","staff"]))
+@End.on_message(filters.command(["admins","staff"]))
 async def admins(client, message):
   try: 
     adminList = []
@@ -210,7 +210,7 @@ async def admins(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)       
 
-@teletips.on_message(filters.command("bots"))
+@End.on_message(filters.command("bots"))
 async def bots(client, message):  
   try:    
     botList = []
@@ -229,7 +229,7 @@ async def bots(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)
 
-@teletips.on_message(filters.command("start") & filters.private)
+@End.on_message(filters.command("start") & filters.private)
 async def start(client, message):
   text = f'''
 Heya {message.from_user.mention},\n
@@ -241,7 +241,7 @@ Hit /help to find out my commands and the use of them.
   await client.send_photo(message.chat.id, S_P, caption=text, reply_markup=InlineKeyboardMarkup(START_MARKUP))
 
 
-@teletips.on_message(filters.command("help"))
+@End.on_message(filters.command("help"))
 async def help(client, message):
   text = '''
 Hey, let's have a quick look at my commands.
