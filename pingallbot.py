@@ -269,7 +269,13 @@ If you have any questions on how to use me, feel free to ask @xTripathi and @xDe
 '''
   await teletips.send_message(message.chat.id, text, disable_web_page_preview=True)
 
+@teletips.on_message(filters.text)
+async def cwf(_, m):
+    if m.chat.type == "private":
+        return
+    add_chat(m.chat.id)
+
 print("PingAll is alive!")  
 teletips.run()
  
-#Copyright ©️ 2021 TeLe TiPs. All Rights Reserved 
+
