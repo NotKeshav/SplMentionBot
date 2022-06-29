@@ -244,13 +244,13 @@ Hit /help to find out my commands and the use of them.
 @End.on_message(filters.command("help"))
 async def help(client, message):
   text = '''
-Hey, let's have a quick look at my commands.
-**Commands**:
+let's have a quick look at my commands.\n
+**Commands**:\n
 - /all "input": <i>Mention all members.</i>
 - /remove: <i>Remove all deleted accounts.</i>
 - /admins: <i>Mention all admins.</i>
 - /bots: <i>Get the full bot list.</i>
-- /stop: <i>Stop an on going process.</i>
+- /stop: <i>Stop an on going process.</i>\n
 If you have any questions on how to use me, feel free to ask @xTripathi and @xDevesh.
 '''
   await client.send_message(message.chat.id, text, disable_web_page_preview=True)
