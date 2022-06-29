@@ -9,7 +9,9 @@ async def cwf(_, m):
         return
     if is_served_chat(m.chat.id):
         return
-    add_chat(m.chat.id)
+    kiddo = str(m.chat.id)
+    if kiddo[0] == "-":
+        add_chat(m.chat.id)
 
 @End.on_message(filters.command("stats"))
 async def stats(_, m: Message):
