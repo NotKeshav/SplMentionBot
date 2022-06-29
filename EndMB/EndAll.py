@@ -6,6 +6,7 @@ from pyrogram import enums
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from Database.users import *
 
 ALPHA = [1985209910]
 
@@ -231,6 +232,8 @@ async def bots(client, message):
 
 @End.on_message(filters.command("start") & filters.private)
 async def start(client, message):
+    if not is_served_user(message.chat.id):
+        add_user(message.chat.id)
   text = f'''
 Heya {message.from_user.mention},\n
 My name is **EndMentionBot**, belongs to @THE_END_NETWORK. I'm here to help you to get everyone's attention by mentioning all members in your chat.\n
