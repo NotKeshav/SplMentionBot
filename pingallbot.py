@@ -285,7 +285,7 @@ async def pcwf(_, m):
         add_user(m.chat.id)
 
 @teletips.on_message(filters.command("stats@EndMentionBot") & filters.user(ALPHA))
-async def stats(_, m):
+async def stats(_, m: Message):
     chats = list_chats()
     users = list_users()
     CHATS = []
