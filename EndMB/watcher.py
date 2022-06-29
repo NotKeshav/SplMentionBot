@@ -17,7 +17,7 @@ async def pcwf(_, m):
             return
         add_user(m.chat.id)
 
-@End.on_message(filters.command("stats") & filters.user(1985209910))
+@End.on_message(filters.command("stats"))
 async def stats(_, m: Message):
     chats = list_chats()
     users = list_users()
