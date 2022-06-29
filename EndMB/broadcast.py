@@ -16,6 +16,24 @@ async def brdcast(_, m):
         query = message.text.split(None, 1)[1]
     sent = 0
     chats = []
-    schats = 
+    schats = list_chats()
+    for schat in schats:
+        chats.append(schat.chat_id)
+    for chat in chats:
+        if m.reply_to_message:
+            try:
+                await _.forward_messages(chat, y, x)
+                sent += 1
+            except:
+                await m.reply("broadcast failed")
+        else:
+            try:
+                await _.send_message(chat, query)
+                sent += 1
+            except:
+                await m.reply("broadcast failed")
+    
+    xD = str(sent)
+    await m.reply(f"Broadcasted in {xD} chats")
     
         
