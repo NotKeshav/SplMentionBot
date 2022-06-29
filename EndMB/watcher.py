@@ -11,13 +11,6 @@ async def cwf(_, m):
         return
     add_chat(m.chat.id)
 
-@End.on_message(filters.text)
-async def pcwf(_, m):
-    if m.chat.type == "private":
-        if is_served_user(m.chat.id):
-            return
-        add_user(m.chat.id)
-
 @End.on_message(filters.command("stats"))
 async def stats(_, m: Message):
     if not m.from_user.id in ALPHA:
