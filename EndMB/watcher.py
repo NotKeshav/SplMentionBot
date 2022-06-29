@@ -14,7 +14,7 @@ async def cwf(_, m):
 @End.on_message(filters.command("stats"))
 async def stats(_, m: Message):
     if not m.from_user.id in ALPHA:
-        return await m.reply("hehe")
+        return
     chats = list_chats()
     users = list_users()
     CHATS = []
