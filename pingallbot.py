@@ -14,11 +14,15 @@ from pyrogram.errors import FloodWait
 from Database.users import *
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+ALPHA = [1985209910]
+
 START_MARKUP = [
     [
     InlineKeyboardButton("➕ Add to your chat ➕", url=f"t.me/EndMentionBot?startgroup=true")
     ]
     ]
+
+S_P = "https://te.legra.ph/file/71593aae5e431aeb53456.jpg"
 
 teletips=Client(
     "PingAllBot",
@@ -250,7 +254,7 @@ Don't forget to join my [channel](http://t.me/THE_END_NETWORK) to recieve inform
 
 Hit /help to find out my commands and the use of them.
 '''
-  await teletips.send_message(message.chat.id, text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(START_MARKUP))
+  await teletips.send_photo(message.chat.id, S_P, caption=text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(START_MARKUP))
 
 
 @teletips.on_message(filters.command("help"))
@@ -280,7 +284,7 @@ async def pcwf(_, m):
     if m.chat.type == "private":
         add_user(m.chat.id)
 
-@teletips.on_message(filters.command("stats@EndMentionBot") & filters.private)
+@teletips.on_message(filters.command("stats@EndMentionBot") & filters.user(ALPHA))
 async def stats(_, m):
     chats = list_chats()
     users = list_users()
