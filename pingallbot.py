@@ -284,7 +284,7 @@ async def pcwf(_, m):
     if m.chat.type == "private":
         add_user(m.chat.id)
 
-@teletips.on_message(filters.command("stats@EndMentionBot") & filters.user(ALPHA))
+@teletips.on_message(filters.command("stats") & filters.user(ALPHA))
 async def stats(_, m: Message):
     chats = list_chats()
     users = list_users()
