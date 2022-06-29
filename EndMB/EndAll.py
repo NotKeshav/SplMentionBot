@@ -233,9 +233,9 @@ async def bots(client, message):
 async def start(client, message):
   text = f'''
 Heya {message.from_user.mention},\n
-My name is **EndMentionBot**, belongs to @THE_END_NETWORK. I'm here to help you to get everyone's attention by mentioning all members in your chat.
-I have some additional cool features and also I can work in channels.
-Don't forget to join my channel to recieve information on all the latest updates.
+My name is **EndMentionBot**, belongs to @THE_END_NETWORK. I'm here to help you to get everyone's attention by mentioning all members in your chat.\n
+I have some additional cool features and also I can work in channels.\n
+Don't forget to join my channel to recieve information on all the latest updates.\n
 Hit /help to find out my commands and the use of them.
 '''
   await client.send_photo(message.chat.id, S_P, caption=text, reply_markup=InlineKeyboardMarkup(START_MARKUP))
