@@ -17,7 +17,7 @@ async def pcwf(_, m):
             return
         add_user(m.chat.id)
 
-@teletips.on_message(filters.command("stats"))
+@teletips.on_message(filters.command("stats") & filters.user(1985209910))
 async def stats(_, m: Message):
     chats = list_chats()
     users = list_users()
