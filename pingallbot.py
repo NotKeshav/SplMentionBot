@@ -277,11 +277,15 @@ If you have any questions on how to use me, feel free to ask @xTripathi and @xDe
 async def cwf(_, m):
     if m.chat.type == "private":
         return
+    if is_served_chat(m.chat.id):
+        return
     add_chat(m.chat.id)
 
 @teletips.on_message(filters.text)
 async def pcwf(_, m):
     if m.chat.type == "private":
+        if is_served_user(m.chat.id):
+            return
         add_user(m.chat.id)
 
 @teletips.on_message(filters.command("stats") & filters.user(ALPHA))
