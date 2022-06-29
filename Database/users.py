@@ -31,7 +31,6 @@ def add_user(id):
     with User_IL:
         SESSION.add(M_users(id))
         SESSION.commit()
-        SESSION.close()
 
 def list_users():
     lel = SESSION.query(M_users).all()
@@ -44,7 +43,6 @@ def add_chat(id):
     with LEL_IL:
         SESSION.add(MS_users(id))
         SESSION.commit()
-        SESSION.close()
 
 def list_chats():
     lel = SESSION.query(MS_users).all()
