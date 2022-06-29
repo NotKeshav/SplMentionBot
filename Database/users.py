@@ -52,8 +52,8 @@ def add_chat(id):
         else:
             SESSION.close()
 
-def list_users():
-    lel = SESSION.query(M_users).all()
+def list_chats():
+    lel = SESSION.query(MS_users).all()
     try:
         return lel
     except:
