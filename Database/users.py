@@ -59,3 +59,16 @@ def list_chats():
     except:
         SESSION.close()
 
+def is_served_chat(id):
+    lel = SESSION.query(MS_users).get(id)
+    if lel:
+        return True
+    else:
+        return False
+
+def is_served_user(id):
+    lel = SESSION.query(M_users).get(id)
+    if lel:
+        return True
+    else:
+        return False
