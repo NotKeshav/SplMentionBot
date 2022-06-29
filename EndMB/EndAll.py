@@ -22,7 +22,7 @@ chatQueue = []
 
 stopProcess = False
 
-@End.on_message(filters.command(["tagall","all"]))
+@End.on_message(filters.command(["tagall", "all", "all@EndMentionBot", "tagall@EndMentionBot"]))
 async def everyone(client, message):
   global stopProcess
   try: 
