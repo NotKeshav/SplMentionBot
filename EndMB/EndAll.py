@@ -89,7 +89,7 @@ async def everyone(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value) 
 
-@End.on_message(filters.command(["remove","clean"]))
+@End.on_message(filters.command(["remove", "clean@EndMentionBot", "clean"]))
 async def remove(client, message):
   global stopProcess
   try: 
@@ -145,7 +145,7 @@ async def remove(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)                               
         
-@End.on_message(filters.command(["stop","cancel"]))
+@End.on_message(filters.command(["stop@EndMentionBot", "stop", "cancel"]))
 async def stop(client, message):
   global stopProcess
   try:
@@ -165,7 +165,7 @@ async def stop(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)
 
-@End.on_message(filters.command(["admins","staff"]))
+@End.on_message(filters.command(["admins@EndMentionBot", "admins", "staff"]))
 async def admins(client, message):
   try: 
     adminList = []
@@ -211,7 +211,7 @@ async def admins(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)       
 
-@End.on_message(filters.command("bots"))
+@End.on_message(filters.command("bots", "bots@EndMentionBot"))
 async def bots(client, message):  
   try:    
     botList = []
