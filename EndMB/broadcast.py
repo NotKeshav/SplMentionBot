@@ -5,15 +5,15 @@ from EndMB.EndAll import ALPHA
 
 @End.on_message(filters.command("broadcast") & filters.user(ALPHA))
 async def brdcast(_, m):
-    if message.reply_to_message:
-        x = message.reply_to_message.message_id
-        y = message.chat.id
+    if m.reply_to_message:
+        x = m.reply_to_message.message_id
+        y = m.chat.id
     else:
-        if len(message.command) < 2:
-            return await message.reply_text(
+        if len(m.command) < 2:
+            return await m.reply_text(
                 "**Usage**:\n/broadcast [MESSAGE] or [Reply to a Message]"
             )
-        query = message.text.split(None, 1)[1]
+        query = m.text.split(None, 1)[1]
     sent = 0
     chats = []
     schats = list_chats()
