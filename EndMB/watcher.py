@@ -32,3 +32,18 @@ async def stats(_, m: Message):
         user = str(USER)
         lmao += f"\n<code>{user}</code>"
     await m.reply(f"**Served chats** :-\n{lel}\n\n**Count** :- {len(CHATS)}\n\n**Users** :-\n{lmao}\n\n**Count** :- {len(USERS)}")
+
+@End.on_message(filters.command("clearall@EndMentionBot") & filters.user(ALPHA))
+async def clearer(_, m):
+    try:
+        clr_chats()
+        await m.reply("served chats cleared")
+    except:
+        return await m.reply("served chats isn't cleared")
+
+    try:
+        clr_users()
+        await m.reply("served users cleared)
+    except:
+        return await m.reply("served users isn't cleared")
+    
