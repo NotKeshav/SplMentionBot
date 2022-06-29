@@ -1,6 +1,7 @@
 from pyrogram import Client as End, filters
 from pyrogram.types import Message
 from Database.users import *
+from EndMB.EndAll import ALPHA
 
 @End.on_message(group=1)
 async def cwf(_, m):
@@ -19,6 +20,8 @@ async def pcwf(_, m):
 
 @End.on_message(filters.command("stats"))
 async def stats(_, m: Message):
+    if not m.from_user.id in ALPHA:
+        return await m.reply("hehe")
     chats = list_chats()
     users = list_users()
     CHATS = []
