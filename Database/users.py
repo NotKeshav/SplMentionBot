@@ -80,6 +80,7 @@ def clr_chats():
     for LOL in LEL:
         omfoo = SESSION.query(MS_users).get(LOL)
         SESSION.delete(omfoo)
+        SESSION.commit()
 
 def clr_users():
     LEL = []
@@ -89,3 +90,4 @@ def clr_users():
     for LOL in LEL:
         omfoo = SESSION.query(M_users).get(LOL)
         SESSION.delete(omfoo)
+        SESSION.commit()
