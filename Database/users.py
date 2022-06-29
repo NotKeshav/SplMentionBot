@@ -29,12 +29,9 @@ LEL_IL = threading.RLock()
 
 def add_user(id):
     with User_IL:
-        lel = SESSION.query(M_users).get(id)
-        if not lel:
-            SESSION.add(M_users(id))
-            SESSION.commit()
-        else:
-            SESSION.close()
+        SESSION.add(M_users(id))
+        SESSION.commit()
+        SESSION.close()
 
 def list_users():
     lel = SESSION.query(M_users).all()
@@ -45,12 +42,9 @@ def list_users():
 
 def add_chat(id):
     with LEL_IL:
-        lel = SESSION.query(MS_users).get(id)
-        if not lel:
-            SESSION.add(MS_users(id))
-            SESSION.commit()
-        else:
-            SESSION.close()
+        SESSION.add(MS_users(id))
+        SESSION.commit()
+        SESSION.close()
 
 def list_chats():
     lel = SESSION.query(MS_users).all()
