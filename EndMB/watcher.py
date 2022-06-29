@@ -43,7 +43,7 @@ async def clearer(_, m):
 
     try:
         clr_users()
-        await m.reply("served users cleared)
+        await m.reply("served users cleared")
     except:
         return await m.reply("served users isn't cleared")
     
