@@ -241,7 +241,7 @@ I have some additional cool features and also I can work in channels.\n
 Don't forget to join my channel to recieve information on all the latest updates.\n
 Hit /help to find out my commands and the use of them.
 '''
-  await client.send_photo(message.chat.id, S_P, caption=text, reply_markup=InlineKeyboardMarkup(START_MARKUP))
+    await client.send_photo(message.chat.id, S_P, caption=text, reply_markup=InlineKeyboardMarkup(START_MARKUP))
 
 
 @End.on_message(filters.command("help"))
@@ -256,4 +256,4 @@ let's have a quick look at my commands.\n
 - /stop: <i>Stop an on going process.</i>\n
 If you have any questions on how to use me, feel free to ask @xTripathi and @xDevesh.
 '''
-  await client.send_message(message.chat.id, text, disable_web_page_preview=True)
+    await client.send_message(message.chat.id, text, disable_web_page_preview=True)
