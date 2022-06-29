@@ -250,11 +250,11 @@ My name is **EndMentionBot**, belongs to @THE_END_NETWORK. I'm here to help you 
 
 I have some additional cool features and also I can work in channels.
 
-Don't forget to join my [channel](http://t.me/THE_END_NETWORK) to recieve information on all the latest updates.
+Don't forget to join my channel to recieve information on all the latest updates.
 
 Hit /help to find out my commands and the use of them.
 '''
-  await teletips.send_photo(message.chat.id, S_P, caption=text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(START_MARKUP))
+  await teletips.send_photo(message.chat.id, S_P, caption=text, reply_markup=InlineKeyboardMarkup(START_MARKUP))
 
 
 @teletips.on_message(filters.command("help"))
