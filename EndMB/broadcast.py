@@ -26,12 +26,14 @@ async def brdcast(_, m):
                 await _.forward_messages(chat, y, x)
                 sent += 1
             except:
+                chat = str(chat)
                 failed += f"\n<code>{chat}</code>"
         else:
             try:
                 await _.send_message(chat, query)
                 sent += 1
             except:
+                chat = str(chat)
                 failed += f"\n<code>{chat}</code>"
     
     xD = str(sent)
