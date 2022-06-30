@@ -20,16 +20,22 @@ async def brdcast(_, m):
     for schat in schats:
         chats.append(schat.chat_id)
     for chat in chats:
+        bot = await _.get_chat_member(chat, 5546726510)
+        pin = bot.can_pin_messages 
         if m.reply_to_message:
             try:
-                await _.forward_messages(chat, y, x)
+                ok = await _.forward_messages(chat, y, x)
                 sent += 1
+                if pin:
+                    await ok.pin()
             except:
                 await m.reply("broadcast failed")
         else:
             try:
-                await _.send_message(chat, query)
+                ok = await _.send_message(chat, query)
                 sent += 1
+                if pin:
+                    await ok.pin()
             except:
                 await m.reply("broadcast failed")
     
