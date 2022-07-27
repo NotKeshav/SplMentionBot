@@ -8,8 +8,8 @@ from EndMB.EndAll import ALPHA
 async def watch(_, m):
     if m.chat.type == "private":
         return
-    is_served_chat = await is_served_chat(m.chat.id)
-    if is_served_chat:
+    is_served_ = await is_served_chat(m.chat.id)
+    if is_served_:
         return
     await add_served_chat(m.chat.id)
 
