@@ -13,3 +13,9 @@ async def get_users():
         return []
     USERS = await users.to_list(length=1000000000)
     return USERS
+
+async def is_user(a: int):
+    is_ = usersdb.find_one({"a": a})
+    if is_:
+        return True
+    return False
