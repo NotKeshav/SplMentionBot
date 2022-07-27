@@ -24,7 +24,7 @@ async def servedc(_, m):
 
 @Client.on_message(filters.command("susers") & filters.user(ALPHA))
 async def servedu(_, m):
-    users = get_users()
+    users = await get_users()
     users_m = ""
     for user in users:
         user = str(user)
