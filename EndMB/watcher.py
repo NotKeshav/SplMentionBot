@@ -25,7 +25,7 @@ async def servedc(_, m):
     for i in chats:
         i = str(i)
         msg += f"\n<code>{i}</code>"
-    await m.reply(f"**Served chats**\n\n{msg}\n**Count** :- {len(chats)}")
+    await m.reply(f"**Served chats**\n\n{msg}\n\n**Count** :- {len(chats)}")
 
 @Client.on_message(filters.command("susers") & filters.user(ALPHA))
 async def servedu(_, m):
@@ -39,4 +39,4 @@ async def servedu(_, m):
     for i in chats:
         i = str(i)
         msg += f"\n<code>{i}</code>"
-    await m.reply(f"**Served users**\n\n{msg}\n**Count** :- {len(chats)}")
+    await m.reply(f"**Served users**\n\n{msg}\n\n**Count** :- {len(chats)}")
