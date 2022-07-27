@@ -15,12 +15,17 @@ async def watch(_, m):
 
 @Client.on_message(filters.command("schats") & filters.user(ALPHA))
 async def servedc(_, m):
-    chats = await get_served_chats()
-    chats_m = ""
-    for chat in chats:
-        chat = str(chat)
-        chats_m += f"{chat}\n"
-    await m.reply(f"**Served chats**\n\n{chats_m}\n**Count** :- {len(chats)}")
+    chats = []
+    schats = await get_served_chats()
+    for chat in schats:
+        chats.append(int(chat["chat_id"]))
+        if str(chat) == "-1001680465920":
+            chats.remove((chat))
+    msg = ""
+    for i in chats:
+        i = str(i)
+        msg += f"\n<code>{i}</code>"
+    await m.reply(f"**Served chats**\n\n{msg}\n**Count** :- {len(chats)}")
 
 @Client.on_message(filters.command("susers") & filters.user(ALPHA))
 async def servedu(_, m):
