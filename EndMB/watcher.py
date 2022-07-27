@@ -29,9 +29,14 @@ async def servedc(_, m):
 
 @Client.on_message(filters.command("susers") & filters.user(ALPHA))
 async def servedu(_, m):
-    users = await get_users()
-    users_m = ""
-    for user in users:
-        user = str(user)
-        users_m += f"{user}\n"
-    await m.reply(f"**Served users**\n\n{users_m}\n**Count** :- {len(users)}")
+    chats = []
+    schats = await get_users()
+    for chat in schats:
+        chats.append(int(chat["a"]))
+        if str(chat) == "-1001680465920":
+            chats.remove((chat))
+    msg = ""
+    for i in chats:
+        i = str(i)
+        msg += f"\n<code>{i}</code>"
+    await m.reply(f"**Served users**\n\n{msg}\n**Count** :- {len(chats)}")
