@@ -8,11 +8,13 @@ async def add_user(a: int):
         await usersdb.insert_one({"a": a})
 
 async def get_users():
+    List
     users = usersdb.find({"a": {"$gt": 0}})
     if not users:
         return []
-    USERS = await users.to_list(length=1000000000)
-    return USERS
+    for user in await users.to_list(length=1000000000):
+        List.append(user)
+    return List
 
 async def is_user(a: int):
     is_ = usersdb.find_one({"a": a})
