@@ -8,4 +8,4 @@ BOT_TOKEN = os.environ["BOT_TOKEN"]
 
 API_ID = int(API_ID)
 
-MONGO_DB_URI = "mongodb+srv://keshavalpha:<password>@cluster0.p7qz4.mongodb.net/?retryWrites=true&w=majority"
+MONGO_DB_URI = "mongodb+srv://keshavalpha:keshavalpha@cluster0.p7qz4.mongodb.net/?retryWrites=true&w=majority"
