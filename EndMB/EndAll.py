@@ -6,7 +6,6 @@ from pyrogram import enums
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from Database.users import *
 from Database.Mongo.chats import *
 
 ALPHA = [1985209910]
