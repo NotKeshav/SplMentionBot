@@ -41,7 +41,7 @@ async def servedu(_, m):
         msg += f"\n<code>{i}</code>"
     await m.reply(f"**Served users**\n\n{msg}\n\n**Count** :- {len(chats)}")
 
-@Client.on_message(filters.new_chat_members, group=welcome_group)
+@Client.on_message(filters.new_chat_members, group=2)
 async def welcome(_, message: Message):
     chat_id = message.chat.id
     await add_served_chat(chat_id)
