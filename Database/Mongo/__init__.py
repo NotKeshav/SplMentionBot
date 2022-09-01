@@ -8,6 +8,6 @@ def check():
 def mongo_build():
     check()
     mongo = MongoClient(Config.MONGO_DB_URI)
-    return db = mongo.EMB
+    return mongo.EMB
 
-
+db = mongo_build()
