@@ -46,6 +46,11 @@
       "description": "Obtain a Telegram bot token by contacting @BotFather",
       "required": true,
       "value": ""
+    },
+    "MONGO_DB_URI": {
+      "description": "Obtain a Mongo url from mongodb.com",
+      "required": false,
+      "value": ""
     }
   }
 }
