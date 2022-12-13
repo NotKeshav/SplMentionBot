@@ -47,7 +47,7 @@ PIC = "https://te.legra.ph/file/d0def824525604b2c1fb8.jpg"
 @Client.on_message(filters.new_chat_members, group=2)
 async def welcome(_, m):
     chat_id = m.chat.id
-    await add_chat(chat_id)
+    await add_served_chat(chat_id)
     get = (await _.get_me())
     men = get.mention
     bot_id = get.id
