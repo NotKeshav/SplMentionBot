@@ -8,7 +8,7 @@ from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Database.Mongo.users import add_user, is_user
 
-ALPHA = [1985209910]
+ALPHA = [5868832590]
 
 S_P = "https://te.legra.ph/file/71593aae5e431aeb53456.jpg"
 
@@ -16,7 +16,7 @@ chatQueue = []
 
 stopProcess = False
 
-@End.on_message(filters.command(["tagall", "all", "all@EndMentionBot", "tagall@EndMentionBot"]))
+@End.on_message(filters.command(["tagall", "all"]))
 async def everyone(client, message):
   global stopProcess
   try: 
@@ -82,7 +82,7 @@ async def everyone(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value) 
 
-@End.on_message(filters.command(["remove", "clean@EndMentionBot", "clean"]))
+@End.on_message(filters.command(["remove", "clean"]))
 async def remove(client, message):
   global stopProcess
   try: 
@@ -138,7 +138,7 @@ async def remove(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)                               
         
-@End.on_message(filters.command(["stop@EndMentionBot", "stop", "cancel"]))
+@End.on_message(filters.command(["stop", "cancel"]))
 async def stop(client, message):
   global stopProcess
   try:
@@ -158,7 +158,7 @@ async def stop(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)
 
-@End.on_message(filters.command(["admins@EndMentionBot", "admins", "staff"]))
+@End.on_message(filters.command(["admins", "staff"]))
 async def admins(client, message):
   try: 
     adminList = []
@@ -167,7 +167,7 @@ async def admins(client, message):
       if admin.privileges.is_anonymous == False:
         if admin.user.is_bot == True:
           pass
-        elif admin.status == ChatMemberStatus.OWNER:
+        elif admin.status.name == "OWNER":
           ownerList.append(admin.user)
         else:  
           adminList.append(admin.user)
@@ -204,7 +204,7 @@ async def admins(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)       
 
-@End.on_message(filters.command("bots", "bots@EndMentionBot"))
+@End.on_message(filters.command(["bots"]))
 async def bots(client, message):  
   try:    
     botList = []
@@ -213,10 +213,10 @@ async def bots(client, message):
     lenBotList = len(botList) 
     text3  = f"**BOT LIST - {message.chat.title}**\n\n🤖 Bots\n"
     while len(botList) > 1:
-      bot = botList.pop(0)
-      text3 += f"├ @{bot.username}\n"    
+      bot = botList.pop()
+      text3 += f"├ @{bot.username}\n"  
     else:    
-      bot = botList.pop(0)
+      bot = botList.pop()
       text3 += f"└ @{bot.username}\n\n"
       text3 += f"✅ | **Total number of bots**: {lenBotList}"  
       await client.send_message(message.chat.id, text3)
@@ -263,6 +263,6 @@ let's have a quick look at my commands.\n
 - /admins: <i>Mention all admins.</i>
 - /bots: <i>Get the full bot list.</i>
 - /stop: <i>Stop an on going process.</i>\n
-If you have any questions on how to use me, feel free to ask @xTripathi and @xDevesh.
+If you have any questions on how to use me, feel free to ask @NotKeshav.
 '''
     await client.send_message(message.chat.id, text, disable_web_page_preview=True)
