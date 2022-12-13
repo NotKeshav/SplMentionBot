@@ -41,16 +41,19 @@ async def servedu(_, m):
         msg += f"\n<code>{i}</code>"
     await m.reply(f"**Served users**\n\n{msg}\n\n**Count** :- {len(chats)}")
 
+
+PIC = "https://te.legra.ph/file/d0def824525604b2c1fb8.jpg"
+
 @Client.on_message(filters.new_chat_members, group=2)
-async def welcome(_, message: Message):
-    chat_id = message.chat.id
-    await add_served_chat(chat_id)
-    men = (await _.get_users(5422479775)).mention
-    for member in message.new_chat_members:
+async def welcome(_, m):
+    chat_id = m.chat.id
+    await add_chat(chat_id)
+    get = (await _.get_me())
+    men = get.mention
+    bot_id = get.id
+    for x in m.new_chat_members:
         try:
-            if member.id == 5422479775:
-                return await message.reply_photo("https://te.legra.ph/file/d94f8c35739b5829410fc.jpg",
-                    caption=f"Thanks for having me in {message.chat.title}\n\n{men} is alive.\n\nFor queries : @Timeisnotwaiting"
-                )
+            if x.id == bot_id:
+                await m.reply_photo(PIC, caption=f"Thanks for having me in {m.chat.title}\n\n{men} is alive !\n\nFor queries : @NotKeshav")
         except:
-            return
+            pass 
