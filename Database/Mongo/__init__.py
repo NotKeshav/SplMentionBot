@@ -2,7 +2,7 @@ from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 import Config
 
 def check():
-    if not config.MONGO_DB_URI:
+    if not Config.MONGO_DB_URI:
         return
 
 def mongo_build():
