@@ -224,9 +224,12 @@ async def bots(client, message):
     await asyncio.sleep(e.value)
 
 uname = None
+name = None
 @End.on_message(filters.command("start") & filters.private)
 async def start(client, message):
-    global uname
+    global uname, name
+    if not name:
+        name = (await client.get_me()).first_name
     if not uname:
         uname = (await client.get_me()).username
     START_MARKUP = [
@@ -245,7 +248,7 @@ async def start(client, message):
         pass
     text = f'''
 Heya {message.from_user.mention},\n
-My name is **EndMentionBot**, belongs to @THE_END_NETWORK. I'm here to help you to get everyone's attention by mentioning all members in your chat.\n
+My name is **{name}**, belongs to @Spoiled_Community. I'm here to help you to get everyone's attention by mentioning all members in your chat.\n
 I have some additional cool features and also I can work in channels.\n
 Don't forget to join my channel to recieve information on all the latest updates.\n
 Hit /help to find out my commands and the use of them.
