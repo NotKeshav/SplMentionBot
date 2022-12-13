@@ -10,14 +10,7 @@ from Database.Mongo.users import add_user, is_user
 
 ALPHA = [1985209910]
 
-START_MARKUP = [
-    [
-    InlineKeyboardButton("➕ Add to your chat ➕", url=f"t.me/EndMentionBot?startgroup=true")
-    ]
-    ]
-
 S_P = "https://te.legra.ph/file/71593aae5e431aeb53456.jpg"
-
 
 chatQueue = []
 
@@ -230,8 +223,17 @@ async def bots(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)
 
+uname = None
 @End.on_message(filters.command("start") & filters.private)
 async def start(client, message):
+    global uname
+    if not uname:
+        uname = (await client.get_me()).username
+    START_MARKUP = [
+    [
+    InlineKeyboardButton("➕ Add to your chat ➕", url=f"t.me/{uname}?startgroup=true")
+    ]
+    ]
     try:
         is_user = await is_user(message.from_user.id)
     except:
