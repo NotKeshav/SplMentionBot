@@ -1,7 +1,4 @@
 pyrogram
 tgcrypto
-SQLAlchemy~=1.4.21
-psycopg2
-pyromod~=1.5
 motor
 pymongo[srv]
