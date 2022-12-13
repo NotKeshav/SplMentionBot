@@ -10,7 +10,7 @@ from Database.Mongo.users import add_user, is_user
 
 ALPHA = [5868832590]
 
-S_P = "https://te.legra.ph/file/71593aae5e431aeb53456.jpg"
+S_P = "https://te.legra.ph/file/418fb2cb59a8a6017dd3c.jpg"
 
 chatQueue = []
 
