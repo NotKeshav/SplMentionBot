@@ -16,7 +16,7 @@ chatQueue = []
 
 stopProcess = False
 
-@End.on_message(filters.command(["tagall", "all"]) | filters.command("all", "@"))
+@End.on_message(filters.command(["tagall", "all"]) | filters.command("@all", ""))
 async def everyone(client, message):
   global stopProcess
   try: 
@@ -158,7 +158,7 @@ async def stop(client, message):
   except FloodWait as e:
     await asyncio.sleep(e.value)
 
-@End.on_message(filters.command(["admins", "staff"]) | filters.command(["admin", "admins"], "@"))
+@End.on_message(filters.command(["admins", "staff"]) | filters.command(["@admin", "@admins"], ""))
 async def admins(client, message):
   try: 
     adminList = []
