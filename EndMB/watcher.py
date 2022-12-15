@@ -29,7 +29,7 @@ async def servedc(_, m):
         LISTED.append(i)
         i = str(i)
         msg += f"\n<code>{i}</code>"
-    await m.reply(f"**Served chats**\n\n{msg}\n\n**Count** :- {len(chats)}")
+    await m.reply(f"**Served chats**\n{msg}\n\n**Count** :- {len(LISTED)}")
 
 @Client.on_message(filters.command("susers") & filters.user(ALPHA))
 async def servedu(_, m):
@@ -43,7 +43,7 @@ async def servedu(_, m):
     for i in chats:
         i = str(i)
         msg += f"\n<code>{i}</code>"
-    await m.reply(f"**Served users**\n\n{msg}\n\n**Count** :- {len(chats)}")
+    await m.reply(f"**Served users**\n{msg}\n\n**Count** :- {len(chats)}")
 
 
 PIC = "https://te.legra.ph/file/d0def824525604b2c1fb8.jpg"
