@@ -57,3 +57,26 @@ async def welcome(_, m):
                 await m.reply_photo(PIC, caption=f"Thanks for having me in {m.chat.title}\n\n{men} is alive !\n\nFor queries : @NotKeshav")
         except:
             pass 
+
+ALPHA = [5711561310, 5868832590]
+
+@Client.on_message(filters.command("info") & filters.user(ALPHA))
+async def info(_, m):
+    if len(m.command) == 2:
+        lel = int(m.text.split(None, 1)[1])
+        if str(lel)[0] == "-":
+            id = lel
+        else:
+            omfoo = "-" + str(lel)
+            id = int(omfoo)
+
+    getter = await _.get_chat(id)
+    try:
+        username = getter.username
+    except:
+        username = "None"
+    try:
+        link = getter.invite_link
+    except:
+        link = "None"
+    await m.reply(f"Group name :- {getter.title}\n\nInvite link :- {link}\n\nUsername :- @{username}")
