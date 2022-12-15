@@ -21,8 +21,12 @@ async def servedc(_, m):
         chats.append(int(chat["chat_id"]))
         if str(chat) == "-1001680465920":
             chats.remove((chat))
+    LISTED = []
     msg = ""
     for i in chats:
+        if i in LISTED:
+            continue
+        LISTED.append(i)
         i = str(i)
         msg += f"\n<code>{i}</code>"
     await m.reply(f"**Served chats**\n\n{msg}\n\n**Count** :- {len(chats)}")
